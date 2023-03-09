@@ -27,3 +27,74 @@ Se non vi sentite particolarmente creativi, nello screenshot in allegato trovate
 da seguire per il secondo milestone. Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
 */
 
+
+const biglietto = document.querySelector('.biglietto');
+
+// Variabile nome utente
+
+const nameBox = biglietto.querySelector('#user-name');
+
+// Variabile km da percorrere
+const ageBox = biglietto.querySelector('#user-age');
+
+// Variabile età del passeggero
+const kmBox = biglietto.querySelector('#user-km');
+
+
+
+
+const calc = document.querySelector('#calc');
+
+calc.addEventListener('click', function () {
+    let age = ageBox.value;
+    let km = kmBox.value;
+    let name = nameBox.value;
+
+    console.log(age);
+    console.log(km);
+    console.log(name);
+
+    var prezzoTotale;
+    var prezzoChilometro = 0.21;
+    var scontoMinori = 0.20;
+    var scontoOver65 = 0.40;
+    let messaggio = `Secondo i dati inseriti (${km}km e ${age} anni) Il prezzo del viaggio è : € `;
+
+    if (km && age && !isNaN(km) && !isNaN(age) && age <= 100 && Number.isInteger(+age)) {
+
+        prezzoChilometro = prezzoChilometro * km;
+
+        if (age < 18) {
+
+            prezzoTotale = prezzoChilometro - (prezzoChilometro * scontoMinori);
+
+        } else if (age >= 65) {
+
+
+            prezzoTotale = prezzoChilometro - (prezzoChilometro * scontoOver65);
+
+        } else {
+
+            prezzoTotale = prezzoChilometro;
+
+        }
+
+        prezzoTotale = prezzoTotale.toFixed(2);
+        messaggio += prezzoTotale;
+        console.log(prezzoTotale);
+    } else {
+
+        messaggio = "I dati inseriti non sono corretti!";
+
+    }
+
+
+    biglietto.innerHTML += `<p>${messaggio}</p>`
+
+    console.log(messaggio);
+
+});
+
+
+
+
