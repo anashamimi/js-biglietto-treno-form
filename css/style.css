@@ -5,3 +5,34 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root{
+    --bg-color: #3365A6;
+    --light-blue: #5483BF;
+    --grey: #99AABF;
+    --contrast-color: #F29F05;
+    --light-color: #F2E0C9;
+}
+
+body{
+    background-color: var(--bg-color);
+}
+
+section{
+    height: 100vh;
+}
+
+.ah-title{
+    color: var(--light-color);
+}
+
+.biglietto{
+    background-color: var(--light-blue);
+    border: 3px solid var(--contrast-color);
+    height: 40rem;
+    width: 30rem;
+}
+
+.ah-input input{
+    background-color: var(--light-color);
+}

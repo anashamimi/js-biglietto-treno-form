@@ -1,4 +1,4 @@
-<html lang="en">    
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -19,9 +19,37 @@
 
 
 <body>
-    
 
-    
+    <section class="d-flex flex-column justify-content-center align-items-center gap-4">
+
+        <h1 class="ah-title">Calcola il prezzo del tuo biglietto</h1>
+        <div class="biglietto rounded-4 container">
+            <div class="my-3 ah-input">
+                <label for="user-name" class="form-label">Inserire il nome</label>
+                <input type="text" class="form-control-plaintext rounded-2 p-1" id="user-name" name="user-name"
+                    placeholder="Nome">
+            </div>
+            <div class="row">
+                <div class="my-3 ah-input col-6">
+                    <label for="user-age" class="form-label">Inserire l'età</label>
+                    <input type="number" class="form-control-plaintext rounded-2 p-1" id="user-age" name="user-age"
+                        placeholder="Età">
+                </div>
+                <div class="my-3 ah-input col-6">
+                    <label for="user-km" class="form-label">Inserire i chilometri</label>
+                    <input type="number" class="form-control-plaintext rounded-2 p-1" id="user-km" name="user-km"
+                        placeholder="Km">
+                </div>
+            </div>
+
+            <div class="row gap-2 container my-3">
+                <button class="btn btn-info col-3" type="submit">Calcola</button>
+                <button class="btn btn-warning col-3" type="reset">Cancella</button>
+            </div>
+        </div>
+    </section>
+
+
     <script type="text/javascript" src="./js/script.js"></script>
     <script type="text/javascript" src="./js/utility.js"></script>
 </body>
