@@ -30,9 +30,15 @@ da seguire per il secondo milestone. Potete scegliere di implementare una soluzi
 
 const biglietto = document.querySelector('.biglietto');
 
+const ticket = document.querySelector('.ticket');
+
 // Variabile nome utente
 
 const nameBox = biglietto.querySelector('#user-name');
+
+// Variabile cognome utente
+
+const lastnameBox = biglietto.querySelector('#user-lastname');
 
 // Variabile km da percorrere
 const ageBox = biglietto.querySelector('#user-age');
@@ -40,25 +46,36 @@ const ageBox = biglietto.querySelector('#user-age');
 // Variabile età del passeggero
 const kmBox = biglietto.querySelector('#user-km');
 
-
+biglietto.classList.remove('d-none');
 
 
 const calc = document.querySelector('#calc');
+
+const reset = document.querySelector('#reset');
+
+const back = ticket.querySelector('#back');
+
+
 
 calc.addEventListener('click', function () {
     let age = ageBox.value;
     let km = kmBox.value;
     let name = nameBox.value;
+    let lastname = lastnameBox.value;
 
     console.log(age);
     console.log(km);
     console.log(name);
+    console.log(lastname);
 
     var prezzoTotale;
     var prezzoChilometro = 0.21;
     var scontoMinori = 0.20;
     var scontoOver65 = 0.40;
-    let messaggio = `Secondo i dati inseriti (${km}km e ${age} anni) Il prezzo del viaggio è : € `;
+
+    biglietto.classList.add('d-none');
+
+    ticket.classList.remove('d-none');
 
     if (km && age && !isNaN(km) && !isNaN(age) && age <= 100 && Number.isInteger(+age)) {
 
@@ -89,12 +106,28 @@ calc.addEventListener('click', function () {
     }
 
 
-    biglietto.innerHTML += `<p>${messaggio}</p>`
+    ticket.innerHTML += `
+    <div class="d-flex">
+            <i class="fa-regular fa-user"></i>
+            <ul>
+                <li>Nome: </li>
+                <li>Cognome: </li>
+                <li>Anni: </li>
+            </ul>
+    </div>
+
+    `;
 
     console.log(messaggio);
 
 });
 
+back.addEventListener('click', function () {
 
+
+
+
+
+});
 
 

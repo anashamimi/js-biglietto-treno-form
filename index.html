@@ -22,8 +22,21 @@
 
     <section class="d-flex flex-column justify-content-center align-items-center gap-4">
 
-        <h1 class="ah-title">Calcola il prezzo del tuo biglietto</h1>
-        <div class="biglietto rounded-4 container">
+        <h1 class="text-uppercase">Calcola il prezzo del tuo biglietto</h1>
+        <div class="biglietto rounded-4 container d-none">
+            <div class="row">
+                <div class="col-6 my-3 ah-input">
+                    <label for="user-name" class="form-label">Inserire il nome</label>
+                    <input type="text" class="form-control-plaintext rounded-2 p-1" id="user-name" name="user-name"
+                        placeholder="Nome">
+                </div>
+
+                <div class="col-6 my-3 ah-input">
+                    <label for="user-lastname" class="form-label">Inserire il cognome</label>
+                    <input type="text" class="form-control-plaintext rounded-2 p-1" id="user-lastname" name="user-name"
+                        placeholder="Cognome">
+                </div>
+            </div>
             <div class="my-3 ah-input">
                 <label for="user-name" class="form-label">Inserire il nome</label>
                 <input type="text" class="form-control-plaintext rounded-2 p-1" id="user-name" name="user-name"
@@ -46,6 +59,19 @@
                 <button class="btn btn-info col-3" type="submit" id="calc">Calcola</button>
                 <button class="btn btn-warning col-3" type="reset" id="reset">Cancella</button>
             </div>
+
+
+        </div>
+
+        <div class="ticket rounded-4 container d-none">
+            <h2 class="text-uppercase text-center">Il tuo biglietto</h2>
+
+            
+
+            <!-- <div class="d-flex mb-0">
+                <button class="btn btn-warning col-3" type="button" id="back">Torna indietro</button>
+            </div> -->
+            
         </div>
     </section>
 
