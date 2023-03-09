@@ -62,33 +62,41 @@ calc.addEventListener('click', function () {
     let km = kmBox.value;
     let name = nameBox.value;
     let lastname = lastnameBox.value;
+    let randomNumCarrozza = getRndNumber(1, 9);
+    let randomNumCP = getRndNumber(1, 10000);
 
     console.log(age);
     console.log(km);
     console.log(name);
     console.log(lastname);
 
-    var prezzoTotale;
+    let prezzoTotale;
     var prezzoChilometro = 0.21;
     var scontoMinori = 0.20;
     var scontoOver65 = 0.40;
+    let offerta = "Offderta Standar"
 
-    biglietto.classList.add('d-none');
-
-    ticket.classList.remove('d-none');
 
     if (km && age && !isNaN(km) && !isNaN(age) && age <= 100 && Number.isInteger(+age)) {
+
+        biglietto.classList.add('d-none');
+
+        ticket.classList.remove('d-none');
+
+    
 
         prezzoChilometro = prezzoChilometro * km;
 
         if (age < 18) {
 
             prezzoTotale = prezzoChilometro - (prezzoChilometro * scontoMinori);
+            offerta = "Sconto 20%"
 
         } else if (age >= 65) {
 
 
             prezzoTotale = prezzoChilometro - (prezzoChilometro * scontoOver65);
+            offerta = "Sconto 40%"
 
         } else {
 
@@ -97,37 +105,40 @@ calc.addEventListener('click', function () {
         }
 
         prezzoTotale = prezzoTotale.toFixed(2);
-        messaggio += prezzoTotale;
         console.log(prezzoTotale);
-    } else {
 
-        messaggio = "I dati inseriti non sono corretti!";
-
-    }
-
-
-    ticket.innerHTML += `
-    <div class="d-flex">
+        ticket.innerHTML += `
+        <div class="d-flex align-items-center">
             <i class="fa-regular fa-user"></i>
             <ul>
-                <li>Nome: </li>
-                <li>Cognome: </li>
-                <li>Anni: </li>
+                <li>Nome: <span>${name}</span></li>
+                <li>Cognome: <span>${lastname}</span></li>
+                <li>Anni: <span>${age}</span></li>
             </ul>
-    </div>
+        </div>
+        <div class="d-flex my-5 gap-3">
+                <img src="https://play-lh.googleusercontent.com/ufwUy4SGVTqCs8fcp6Ajxfpae0bNImN1Rq2cXUjWI7jlmNMCsXgQE5C3yUEzBu5Gadkz" alt="qr code">
+                <ul class="row text-center">
+                    <li class="col-3">Carrozza:<br><span>${randomNumCarrozza}</span></li>
+                    <li class="col-3">Codice CP:<br><span>${randomNumCP}</span></li>
+                    <li class="col-3">Biglietto:<br><span>${prezzoTotale}€</span></li>
+                    <li class="col-3">Offerta:<br><span>${offerta}</span></li>
+                </ul>
+        </div>`;
 
-    `;
+        
+    } else {
 
-    console.log(messaggio);
+        biglietto.innerHTML += `<p class="text-warning">I dati inseriti non sono corretti!</p>`;
+
+    }    
 
 });
 
-back.addEventListener('click', function () {
-
-
-
-
-
+reset.addEventListener('click', function () {
+    ageBox.value = '';
+    lastnameBox.value = '';
+    kmBox.value = '';
+    nameBox = '';
 });
-
 

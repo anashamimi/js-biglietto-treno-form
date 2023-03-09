@@ -29,15 +29,14 @@ h1, h2{
 .biglietto, .ticket{
     background-color: var(--light-blue);
     border: 3px solid var(--contrast-color);
-    height: 40rem;
-    width: 30rem;
+    width: 40rem;
 }
 
 .ah-input input{
     background-color: var(--light-color);
 }
 
-.ticket i{
+.ticket i.fa-user{
     color: var(--contrast-color);
     font-size: 5rem;
 }
@@ -45,4 +44,18 @@ h1, h2{
 ul{
     list-style: none;
     padding: 0 20px;
+    color: var(--light-color);
+    font-weight: 600;
+}
+
+.ticket img{
+    width: 100px;
+}
+
+.ticket ul{
+    color: var(--bs-warning);
+}
+
+.ticket ul span{
+    color: var(--light-color);
 }
